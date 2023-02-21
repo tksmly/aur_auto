@@ -18,7 +18,7 @@ jobs:
           export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice/git/refs/heads/main | jq .object.url)
           export u=$(cat current)
           echo ${w} > current
-          if test $w = $u; then echo www; fi
+          if test $w = $u; then echo www; fi # 不同的step不是同一个bash(悲
       
           
       
