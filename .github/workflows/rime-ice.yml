@@ -6,12 +6,12 @@ jobs:
   awa:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v3
-        name: 当前版本
-        with:
-          key: rime-ice
-          path: |
-            current
+#       - uses: actions/cache@v3
+#         name: 当前版本
+#         with:
+#           key: rime-ice
+#           path: |
+#             current
         
       - name: 获取版本
         run: |
@@ -19,7 +19,7 @@ jobs:
           export u=$(cat current)
           echo ${w} > current
       - name: uwu
-        if: ${w} == ${u}
+        if: ${{env.w == env.u}}
         run: |
           echo awa
       
