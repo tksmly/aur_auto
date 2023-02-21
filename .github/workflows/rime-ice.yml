@@ -19,7 +19,7 @@ jobs:
           export u=$(cat current)
           echo ${w} > current
       - name: uwu
-        if: w == u
+        if: ${w} == ${u}
         run: |
           echo awa
       
