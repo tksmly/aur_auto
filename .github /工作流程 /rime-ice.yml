@@ -1,0 +1,28 @@
+name: rime-ice
+
+on:
+  workflow_dispatch:
+jobs:
+  awa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/cache@v3
+        name: 当前版本
+        with:
+          key: rime-ice
+          path: |
+            current
+        
+      - name: 获取版本
+        run: |
+          export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice/git/refs/heads/main | jq .object.url)
+          export u=$(cat current)
+          echo ${w} > current
+      - name: uwu
+        if: w == u
+        run: |
+          echo awa
+      
+          
+      
+        
