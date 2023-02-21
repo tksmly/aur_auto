@@ -18,8 +18,7 @@ jobs:
           export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice/git/refs/heads/main | jq .object.url)
           export u=$(cat current)
           echo ${w} > current
-          echo "::set-env name=w::$w"
-          echo "::set-env name=u::$u"
+          echo "##[set-env name=NAME;]$(date +%Y%m%d)"
       - name: uwu
         if: ${{env.w == env.u}}
         run: |
