@@ -6,12 +6,12 @@ jobs:
   awa:
     runs-on: ubuntu-latest
     steps:
-#       - uses: actions/cache@v3
-#         name: 当前版本
-#         with:
-#           key: rime-ice
-#           path: |
-#             current
+      - uses: actions/cache@v3
+        name: 当前版本
+        with:
+          key: rime-ice
+          path: |
+            current
         
       - name: 好吃的
         run: |
