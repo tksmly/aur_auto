@@ -18,10 +18,7 @@ jobs:
       - name: www
         run: |
           if test ${{ env.www }} = 0;then
-          git clone https://aur.archlinux.org/rime-ice.git
-          cd rime-ice/
-          sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
-          sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
+          
           mkdir ~/.ssh
           ssh-keyscan -t "rsa,dsa,ecdsa,ed25519" aur.archlinux.org > ~/.ssh/known_hosts
           echo Host * > ~/.ssh/config
@@ -31,6 +28,11 @@ jobs:
           chmod 600 ~/.ssh/aur
           git config --global user.name tksmly
           git config --global user.email tksmly@gmail.com
+          
+          git clone ssh://aur@aur.archlinux.org/rime-ice.git
+          cd rime-ice/
+          sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
+          sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
           git commit -a -m "Updated version"
           git push
           fi
