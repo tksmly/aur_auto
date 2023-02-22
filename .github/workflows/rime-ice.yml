@@ -15,7 +15,7 @@ jobs:
           echo $w
           echo $u
       - name: www
-        if: ${{ env.www }} == 1
+        if: ${{ env.www }} == 0
         run: |
           echo ${{ env.www }}
         
