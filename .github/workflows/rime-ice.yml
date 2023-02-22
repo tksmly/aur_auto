@@ -29,6 +29,8 @@ jobs:
           echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > ~/.ssh/aur
           echo "${{ secrets.AUR_SSH_PUBLIC_KEY }}" > ~/.ssh/aur.pub
           chmod 600 ~/.ssh/aur
+          git config --global user.name tksmly
+          git config --global user.email tksmly@gmail.com
           git commit -a -m "Updated version"
           git push
           fi
