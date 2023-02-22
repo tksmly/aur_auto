@@ -15,7 +15,7 @@ jobs:
       - name: www
         if: ${{ env.www }} == yes
         run: |
-          echo $GITHUB_ENV
+          cat $GITHUB_ENV
         
       
           
