@@ -21,6 +21,8 @@ jobs:
           if test $w = $u; then echo "www=yes" >> $GITHUB_ENV; fi
       - name: www
         if: ${{ env.www }} == yes
+        run: |
+          echo yes
         
       
           
