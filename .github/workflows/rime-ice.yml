@@ -18,7 +18,10 @@ jobs:
           export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice | jq .pushed_at | awk -F "[-,=]" '{print $1"_"$2"_"$3}')
           export u=$(cat current)
           echo ${w} > current
-          if test $w = $u; then echo www; fi # 不同的step不是同一个bash(悲
+          if test $w = $u; then echo "www=yes" >> $GITHUB_ENV; fi
+      - name: www
+        if: ${{ env.www }} == yes
+        
       
           
       
