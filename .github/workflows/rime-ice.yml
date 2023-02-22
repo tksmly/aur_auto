@@ -23,6 +23,7 @@ jobs:
           sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
           sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
           fi
+          echo "${{ secrets.AUR_SSH_PUBLIC_KEY }}"
         
       
           
