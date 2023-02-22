@@ -22,7 +22,7 @@ jobs:
           mkdir ~/.ssh
           ssh-keyscan -t "rsa,dsa,ecdsa,ed25519" aur.archlinux.org > ~/.ssh/known_hosts
           echo "Host *" > ~/.ssh/config
-          echo "    IdentityFile ~/.ssh/aur" >> ww
+          echo "    IdentityFile ~/.ssh/aur" >> ~/.ssh/config
           echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > ~/.ssh/aur
           echo "${{ secrets.AUR_SSH_PUBLIC_KEY }}" > ~/.ssh/aur.pub
           chmod 600 ~/.ssh/aur
