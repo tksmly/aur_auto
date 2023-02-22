@@ -18,7 +18,7 @@ jobs:
       - name: www
         run: |
           if test ${{ env.www }} = 0;then
-          git clone ssh://aur@aur.archlinux.org/rime-ice.git
+          git clone https://aur.archlinux.org/rime-ice.git
           cd rime-ice/
           sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
           sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
