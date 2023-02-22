@@ -10,7 +10,7 @@ jobs:
       - name: 好吃的
         run: |
           export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice | jq .pushed_at | awk -F "[-,=,:]" '{print $1"_"$2"_"$3"_"$4"_"$5}' | sed 's/\"//g')
-          export u=$(curl -s -L "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=rime-ice" | jq .results[].Version | sed 's/\"//g'| awk -F "-1" '{ print $1 }')
+          export u=$(curl -s -L "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=rime-ice" | jq .results[].Version | sed 's/\"//g'| sed 's/..$//g')
           if test $w = $u; then echo "www=1" >> $GITHUB_ENV; else echo "www=0" >> $GITHUB_ENV; fi
           echo "uuu=$w" >> $GITHUB_ENV
           echo $w
