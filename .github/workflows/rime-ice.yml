@@ -22,6 +22,9 @@ jobs:
           cd rime-ice/
           sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
           sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
+          
+          ssh-keyscan -t "rsa,dsa,ecdsa,ed25519" aur.archlinux.org > ~/.ssh/known_hosts
+          echo "${{ secrets.AUR_SSH_CONFIG }}" > ~/.ssh/config
           echo "${{ secrets.AUR_SSH_PRIVATE_KEY }}" > ~/.ssh/aur
           echo "${{ secrets.AUR_SSH_PUBLIC_KEY }}" > ~/.ssh/aur.pub
           chmod 600 ~/.ssh/aur
