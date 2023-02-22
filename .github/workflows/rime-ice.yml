@@ -10,12 +10,12 @@ jobs:
       - name: 好吃的
         run: |
           export w=$(curl -s -L https://api.github.com/repos/iDvel/rime-ice | jq .pushed_at | awk -F "[-,=,:]" '{print $1"_"$2"_"$3"_"$4"_"$5}' | sed 's/\"//g')"-1"
-          export u=$(curl -s -L "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=rime-ice" | jq .results[].Version)
+          export u=$(curl -s -L "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=rime-ice" | jq .results[].Version | sed 's/\"//g')
           if test $w = $u; then echo "www=yes" >> $GITHUB_ENV; else echo "www='no'" >> $GITHUB_ENV; fi
           echo $w
           echo $u
       - name: www
-        if: ${{ env.www }} == 'yes'
+        if: ${{ env.www }} == no
         run: |
           echo ${{ env.www }}
         
