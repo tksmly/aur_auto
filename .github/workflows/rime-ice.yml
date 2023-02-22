@@ -15,9 +15,10 @@ jobs:
           echo $w
           echo $u
       - name: www
-        if: ${{ env.www }} == 0
         run: |
+          if test ${{ env.www }} = 0;then
           echo ${{ env.www }}
+          fi
         
       
           
