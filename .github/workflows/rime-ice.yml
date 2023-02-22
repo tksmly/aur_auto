@@ -20,8 +20,8 @@ jobs:
           if test ${{ env.www }} = 0;then
           git clone ssh://aur@aur.archlinux.org/rime-ice.git
           cd rime-ice/
-          sed -i "5cpkgver=${{ env.uuu }}" PKGBUILD
-          cat PKGBUILD
+          sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
+          sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
           fi
         
       
