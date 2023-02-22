@@ -2,6 +2,8 @@ name: rime-ice
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1,4"
 jobs:
   awa:
     runs-on: ubuntu-latest
