@@ -13,6 +13,8 @@ jobs:
           export u=$(curl -s -L "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=rime-ice" | jq .results[].Version)
           if test $w = $u; then echo "www=yes" >> $GITHUB_ENV; fi
           if test $w = $u; then echo "www=yes"; fi
+          echo $w
+          echo $u
       - name: www
         if: ${{ env.www }} == yes
         run: |
