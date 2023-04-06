@@ -31,7 +31,7 @@ jobs:
           git config --global user.name tksmly
           git config --global user.email tksmly@gmail.com
           
-          git clone ssh://aur@aur.archlinux.org/rime-ice.git
+          git clone --depth 1 ssh://aur@aur.archlinux.org/rime-ice.git
           cd rime-ice/
           sed -i "s/pkgver=.*/pkgver=${{ env.uuu }}/g" PKGBUILD
           sed -i "s/pkgver = .*/pkgver = ${{ env.uuu }}/g" .SRCINFO
